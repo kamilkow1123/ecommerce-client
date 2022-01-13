@@ -17,9 +17,11 @@ export const loadUser = () => async (dispatch, getState) => {
   dispatch({ type: USER_LOADING });
 
   try {
-    const response = await resultsAPI.get("users/me/", tokenConfig(getState));
-
-    // console.log(response);
+    const response = await resultsAPI.get(
+      "auth/users/me/",
+      tokenConfig(getState)
+    );
+    console.log(response);
 
     dispatch({
       type: USER_LOADED,
@@ -34,7 +36,7 @@ export const loadUser = () => async (dispatch, getState) => {
 };
 
 //login user
-export const login = (username, password) => async (dispatch) => {
+export const login = (email, password) => async (dispatch) => {
   //headers
   const config = {
     headers: {
@@ -43,11 +45,12 @@ export const login = (username, password) => async (dispatch) => {
   };
 
   //Request body
-  const body = JSON.stringify({ username, password });
+  const body = JSON.stringify({ email, password });
 
   try {
     const response = await resultsAPI.post("auth/token/login/", body, config);
 
+    console.log("res", response);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: response.data,
