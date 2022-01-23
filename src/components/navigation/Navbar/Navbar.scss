@@ -1,0 +1,50 @@
+@import "../../../style/colors";
+
+.nav {
+  background-color: $clr-dark;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+
+  &__wrapper {
+    margin: 0 20px;
+    width: 100%;
+    max-width: 1300px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $clr-dark;
+    color: $clr-light;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  &__item {
+    color: $clr-light;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    
+    svg {
+      fill: $clr-light;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        fill: $clr-primary;
+      }
+    }
+
+    &:hover {
+      color: $clr-primary;
+    }
+  }
+}

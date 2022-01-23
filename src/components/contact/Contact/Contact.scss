@@ -1,0 +1,37 @@
+@import "../../../style/colors";
+
+.contact {
+  // background-color: $clr-light;
+  background-color: $clr-dark;
+  height: 100vh;
+
+  &__content {
+    margin: 20px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container {
+    // background-color: $clr-light;
+    background-color: $clr-light;
+    padding: 60px 40px;
+    border: 10px solid $clr-primary;
+    box-shadow: 0px 0px 39px -5px rgba(66, 68, 90, 1);
+
+    h1 {
+      padding-bottom: 25px;
+      color: $clr-primary;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__wrapper {
+    margin: 20px 0;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Navbar from "../navigation/Navbar";
-import Sidebar from "../navigation/Sidebar";
-import ProductList from "../products/ProductList";
+import Navbar from "../../navigation/Navbar";
+import Sidebar from "../../navigation/Sidebar";
+import ProductList from "../../products/ProductList";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);

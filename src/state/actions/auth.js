@@ -21,7 +21,7 @@ export const loadUser = () => async (dispatch, getState) => {
       "auth/users/me/",
       tokenConfig(getState)
     );
-    console.log(response);
+    // console.log(response);
 
     dispatch({
       type: USER_LOADED,

@@ -1,0 +1,73 @@
+@import "../../../style/colors";
+@import "../../../style/media-queries";
+
+.favs {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px 20px;
+    grid-template-areas: ".";
+
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: ". .";
+    }
+
+    @include large {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px 20px;
+      grid-template-areas: ". . .";
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__img-wrapper {
+    max-width: 600px;
+    max-height: 600px;
+
+    img {
+      object-fit: cover;
+      height: 600px;
+    }
+  }
+
+  &__name {
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $clr-primary;
+    }
+  }
+
+  &__price {
+    color: $clr-grey;
+  }
+
+  &__button {
+    color: $clr-light;
+    background-color: $clr-primary;
+    padding: 15px 20px;
+    border-radius: 25px;
+    border: 2px solid $clr-primary;
+    outline: none;
+    margin: 25px 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $clr-light;
+      color: $clr-primary;
+    }
+  }
+}

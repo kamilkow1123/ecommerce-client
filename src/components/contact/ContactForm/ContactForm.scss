@@ -1,0 +1,102 @@
+@import "../../../style/colors";
+@import "../../../style/media-queries";
+
+.contact-form {
+  width: 100%;
+  height: 100%;
+
+  &__error {
+    color: $clr-primary;
+    text-align: center;
+  }
+
+  &__button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__submit-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background: $clr-primary;
+    color: $clr-light;
+    text-decoration: none;
+    border: 2px solid $clr-primary;
+    border-radius: 25px;
+    align-self: stretch;
+    cursor: pointer;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease-in-out;
+    font-size: 1rem;
+
+    &:hover {
+      background: $clr-light;
+      color: $clr-primary;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+
+  &__group {
+    padding: 5px;
+
+    @include desktop {
+      margin: 1rem 0;
+      width: 100%;
+    }
+
+    &:focus-within label {
+      color: $clr-primary;
+    }
+
+    label {
+      display: block;
+      color: $clr-grey;
+      margin-bottom: 5px;
+      transition: all 0.4s ease-in-out;
+    }
+
+    input,
+    textarea {
+      border: none;
+      padding: 10px;
+      padding-left: 0;
+      width: 100%;
+      background: transparent;
+      color: $clr-primary;
+      transition: all 0.4s ease-in-out;
+      border-bottom: 2px solid $clr-grey;
+
+      &:focus-within {
+        border: none;
+        outline: none;
+        border-bottom: 2px solid $clr-primary;
+      }
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: $clr-primary !important;
+        transition: all 0s 50000s, border-bottom 0.4s ease-in-out;
+        -webkit-transition: all 0s 50000s, border-bottom 0.4s ease-in-out;
+      }
+    }
+
+    textarea {
+      resize: none;
+      overflow: auto;
+    }
+  }
+}

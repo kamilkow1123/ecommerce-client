@@ -3,17 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 //action creators
 import { fetchProducts } from "../../../state/actions";
+//styles
+import "./ProductList.scss";
 
 const ProductList = () => {
   const dispatch = useDispatch();
   const products = useSelector(({ products }) => products.listOfProducts);
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    if (!products?.length) {
+      dispatch(fetchProducts());
+    }
   }, [dispatch]);
 
   const renderProducts = () => {
-    console.log(products);
     return products.map(
       ({
         id,
@@ -22,29 +25,25 @@ const ProductList = () => {
         stock_availability,
         image_url,
       }) => (
-        <Link
-          to={`product/${id}`}
-          key={id}
-          style={{ border: "2px solid blue" }}
-        >
-          <div style={{ maxWidth: "200px", maxHeight: "200px" }}>
-            <img
-              style={{
-                objectFit: "cover",
-                height: "200px",
-              }}
-              src={image_url}
-            ></img>
+        <Link to={`product/${id}`} key={id} className="product-list__link">
+          <div className="product-list__img-wrapper">
+            <img src={image_url}></img>
           </div>
-          <p>{product_name}</p>
-          <p>{retail_price_brutt}</p>
-          <p>{stock_availability}</p>
+          <p className="product-list__name">{product_name}</p>
+          <p className="product-list__price">
+            {Math.round(retail_price_brutt * 100) / 100} zł
+          </p>
+          <p className="product-list__avail">{stock_availability} pcs</p>
         </Link>
       )
     );
   };
 
-  return <div>{renderProducts()}</div>;
+  return (
+    <div className="product-list">
+      <div className="product-list__wrapper">{renderProducts()}</div>
+    </div>
+  );
 };
 
 export default ProductList;
