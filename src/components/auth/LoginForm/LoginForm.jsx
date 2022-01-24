@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./LoginForm.scss";
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({ email: "", password: "" });
@@ -11,15 +12,15 @@ function LoginForm({ Login, error }) {
   };
 
   return (
-    <form onSubmit={submitHandler} className="form">
+    <form onSubmit={submitHandler} className="login-form">
       <h2>Login</h2>
-      {error && <div className="form__error-login">{error}</div>}
-      <div className="form__group">
-        <label className="form__group__label" htmlFor="form-email">
+      {error && <div className="login-form__error-login">{error}</div>}
+      <div className="login-form__group">
+        <label className="login-form__label" htmlFor="form-email">
           E-mail
         </label>
         <input
-          className="form__group__input"
+          className="login-form__input"
           type="text"
           name="email"
           id="email"
@@ -27,12 +28,12 @@ function LoginForm({ Login, error }) {
           value={details.email}
         />
       </div>
-      <div className="form__group">
-        <label className="form__group__label" htmlFor="password">
+      <div className="login-form__group">
+        <label className="login-form__label" htmlFor="password">
           Password:
         </label>
         <input
-          className="form__group__input"
+          className="login-form__input"
           type="password"
           name="password"
           id="password"
@@ -45,10 +46,14 @@ function LoginForm({ Login, error }) {
           value={details.password}
         />
       </div>
-      <input className="form__submit-button" type="submit" value="LOGIN" />
+      <input
+        className="login-form__submit-button"
+        type="submit"
+        value="LOGIN"
+      />
       <p>
         Don't have an account?
-        <Link className="form__register-button" to="/register">
+        <Link className="login-form__register-button" to="/register">
           Register
         </Link>
       </p>

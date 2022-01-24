@@ -13,6 +13,8 @@ const INITIAL_STATE = {
   createdOrderSuccess: false,
   createdOrder: null,
   discountCode: null,
+  orderNumber: null,
+  status: "",
   totalOrderCost: 0,
 };
 
@@ -40,8 +42,10 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         numOfCartProducts: 0,
         createdOrderSuccess: true,
         createdOrder: action.payload.cart,
-        discountCode: action.payload.discount_code,
+        discountCode: action.payload.new_discount,
         totalOrderCost: action.payload.total_cost_net,
+        orderNumber: action.payload.order_number,
+        status: action.payload.status,
       };
     case CREATE_ORDER_ERROR:
       return {
@@ -49,6 +53,8 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         createdOrderSuccess: false,
         createdOrder: null,
         discountCode: null,
+        orderNumber: null,
+        status: "",
         totalOrderCost: 0,
       };
     default:

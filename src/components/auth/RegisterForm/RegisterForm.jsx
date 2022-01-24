@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./RegisterForm.scss";
 
 function RegisterForm({ Register, errors }) {
   const [details, setDetails] = useState({
@@ -17,29 +18,31 @@ function RegisterForm({ Register, errors }) {
   };
 
   return (
-    <form onSubmit={submitHandler} className="form">
+    <form onSubmit={submitHandler} className="register-form">
       <h2>Register</h2>
       {/* {error !== '' ? <div className="error">{error}</div> : ''} */}
-      <div className="form__group">
-        <label className="form__group__label" htmlFor="email">
+      <div className="register-form__group">
+        <label className="register-form__label" htmlFor="email">
           Email:
         </label>
         <input
-          className="form__group__input"
+          className="register-form__input"
           type="email"
           name="email"
           id="email"
           onChange={(e) => setDetails({ ...details, email: e.target.value })}
           value={details.email}
         />
-        {errors.email && <p className="form__error-register">{errors.email}</p>}
+        {errors.email && (
+          <p className="register-form__error-register">{errors.email}</p>
+        )}
       </div>
-      <div className="form__group">
-        <label className="form__group__label" htmlFor="first_name">
+      <div className="register-form__group">
+        <label className="register-form__label" htmlFor="first_name">
           First Name:
         </label>
         <input
-          className="form__group__input"
+          className="register-form__input"
           type="text"
           name="first_name"
           id="first_name"
@@ -52,15 +55,15 @@ function RegisterForm({ Register, errors }) {
           value={details.first_name}
         />
         {errors.first_name && (
-          <p className="form__error-register">{errors.first_name}</p>
+          <p className="register-form__error-register">{errors.first_name}</p>
         )}
       </div>
-      <div className="form__group">
-        <label className="form__group__label" htmlFor="last_name">
+      <div className="register-form__group">
+        <label className="register-form__label" htmlFor="last_name">
           Last Name:
         </label>
         <input
-          className="form__group__input"
+          className="register-form__input"
           type="text"
           name="last_name"
           id="last_name"
@@ -73,29 +76,31 @@ function RegisterForm({ Register, errors }) {
           value={details.last_name}
         />
         {errors.last_name && (
-          <p className="form__error-register">{errors.last_name}</p>
+          <p className="register-form__error-register">{errors.last_name}</p>
         )}
       </div>
-      <div className="form__group">
-        <label className="form__group__label" htmlFor="phone">
+      <div className="register-form__group">
+        <label className="register-form__label" htmlFor="phone">
           Phone number:
         </label>
         <input
-          className="form__group__input"
+          className="register-form__input"
           type="tel"
           name="phone"
           id="phone"
           onChange={(e) => setDetails({ ...details, phone: e.target.value })}
           value={details.phone}
         />
-        {errors.phone && <p className="form__error-register">{errors.phone}</p>}
+        {errors.phone && (
+          <p className="register-form__error-register">{errors.phone}</p>
+        )}
       </div>
-      <div className="form__group">
-        <label className="form__group__label" htmlFor="password">
+      <div className="register-form__group">
+        <label className="register-form__label" htmlFor="password">
           Password:
         </label>
         <input
-          className="form__group__input"
+          className="register-form__input"
           type="password"
           name="password"
           id="password"
@@ -108,15 +113,15 @@ function RegisterForm({ Register, errors }) {
           value={details.password}
         />
         {errors.password && (
-          <p className="form__error-register">{errors.password}</p>
+          <p className="register-form__error-register">{errors.password}</p>
         )}
       </div>
-      <div className="form__group">
-        <label className="form__group__label" htmlFor="re_password">
+      <div className="register-form__group">
+        <label className="register-form__label" htmlFor="re_password">
           Confirm Password:
         </label>
         <input
-          className="form__group__input"
+          className="register-form__input"
           type="password"
           name="re_password"
           id="re_password"
@@ -129,13 +134,15 @@ function RegisterForm({ Register, errors }) {
           value={details.re_password}
         />
         {errors.re_password && (
-          <p className="form__error-register">{errors.re_password}</p>
+          <p className="register-form__error-register">{errors.re_password}</p>
         )}
       </div>
-      <input type="submit" value="REGISTER" className="form__submit-button" />
+      <button type="submit" className="register-form__submit-button">
+        REGISTER
+      </button>
       <p>
         Already have an account?
-        <Link className="form__register-button" to="/login">
+        <Link className="register-form__login-button" to="/login">
           Login
         </Link>
       </p>

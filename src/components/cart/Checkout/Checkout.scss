@@ -1,0 +1,110 @@
+@import "../../../style/colors";
+
+$img-size: 250px;
+.checkout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__wrapper {
+    margin: 0 20px;
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  &__info {
+    margin-top: 5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__order,
+  &__status {
+    font-size: 1.2rem;
+    color: $clr-grey;
+    padding: 0.5rem;
+    // text-align: left;
+  }
+
+  &__details {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 0;
+    color: $clr-primary;
+
+    span {
+      font-size: 1.1rem;
+      text-decoration: line-through;
+    }
+  }
+
+  &__discount {
+    font-size: 1.2rem;
+  }
+
+  &__button {
+    text-decoration: none;
+    padding: 20px 15px;
+    background-color: $clr-primary;
+    border-radius: 35px;
+    color: $clr-light;
+    border: 2px solid $clr-primary;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $clr-light;
+      color: $clr-primary;
+    }
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px 10px;
+    grid-template-areas: ". .";
+  }
+
+  &__product {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__name {
+      font-size: 1.7rem;
+      padding-bottom: 10px;
+    }
+
+    &__img {
+      max-width: $img-size;
+      max-height: $img-size;
+
+      img {
+        object-fit: cover;
+        height: $img-size;
+      }
+    }
+
+    &__price {
+      padding: 0.6rem 0;
+      color: $clr-primary;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+
+      &--pcs {
+        color: $clr-grey;
+        font-size: 1rem;
+        margin-bottom: 0.7rem;
+      }
+    }
+  }
+}

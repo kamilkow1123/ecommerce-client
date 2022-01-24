@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import RegisterForm from "../RegisterForm";
 import { Link, Navigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import "./Register.scss";
 
 const Register = ({ errorMessage, isAuthenticated, register }) => {
   const [errors, setErrors] = useState({});
@@ -28,8 +29,8 @@ const Register = ({ errorMessage, isAuthenticated, register }) => {
   return (
     <div>
       {!isAuthenticated ? (
-        <div className="login">
-          <Link to="/" className="login__back-button">
+        <div className="register">
+          <Link to="/" className="register__back-button">
             <span>
               <FaArrowLeft />
             </span>{" "}

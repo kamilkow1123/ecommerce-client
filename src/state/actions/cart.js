@@ -64,13 +64,13 @@ export const deleteFromCart = (id) => async (dispatch, getState) => {
   }
 };
 
-export const createOrder = () => async (dispatch, getState) => {
+export const createOrder = (discountCode) => async (dispatch, getState) => {
+  //Request body
+  let discount_code = discountCode;
+  const { config, body } = formConfig(getState, { discount_code });
+  // const body = JSON.stringify({ discount_code: discountCode });
   try {
-    const response = await resultsAPI.post(
-      "order/create/",
-      null,
-      tokenConfig(getState)
-    );
+    const response = await resultsAPI.post("order/create/", body, config);
 
     console.log("createOrder", response?.data);
     dispatch({
@@ -87,4 +87,31 @@ export const createOrder = () => async (dispatch, getState) => {
     });
     alert(`ERROR WHILE CREATING ORDER\n${err?.response?.data}`);
   }
+};
+
+export const formConfig = (getState, formValues) => {
+  //get token from state
+  const token = getState().auth.auth_token;
+
+  //headers
+  const config = {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  };
+
+  //if token, add to headers config
+  if (token) {
+    config.headers["Authorization"] = `Token ${token}`;
+  }
+
+  let body = [];
+  for (let property in formValues) {
+    let encodedKey = encodeURIComponent(property);
+    let encodedValue = encodeURIComponent(formValues[property]);
+    body.push(encodedKey + "=" + encodedValue);
+  }
+  body = body.join("&");
+
+  return { config, body };
 };

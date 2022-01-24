@@ -1,0 +1,96 @@
+@import "../../../style/colors";
+@import "../../../style/fonts";
+@import "../../../style/media-queries";
+
+.register-form {
+  background-color: $clr-light;
+  padding: 3rem 2rem;
+  margin: 20px;
+  box-shadow: 0px 0px 45px -9px rgba(0, 0, 0, 0.75);
+  max-width: 330px;
+  transition: all 0.4s ease-in-out;
+
+  h2 {
+    font-size: 2.2rem;
+    color: $clr-grey;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  &__error-login {
+    color: $clr-primary;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  &__error-register {
+    margin-top: 3px;
+    color: $clr-primary;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+
+    &:focus-within label {
+      color: $clr-primary;
+    }
+  }
+  &__label {
+    margin-bottom: 0.3rem;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &__input {
+    padding: 0.8rem 1rem;
+    border: none;
+    outline: none;
+    background: $clr-light;
+    border-bottom: 2px solid $clr-dark;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+      border-bottom: 2px solid $clr-primary;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: $clr-dark !important;
+      transition: all 0s 50000s, border-bottom 0.4s ease-in-out,
+        box-shadow 0.4s ease-in-out;
+      -webkit-transition: all 0s 50000s, border-bottom 0.4s ease-in-out,
+        box-shadow 0.4s ease-in-out;
+      font-family: $font-primary;
+      -webkit-font-family: $font-primary;
+    }
+  }
+
+  &__submit-button {
+    padding: 0.6rem 1rem;
+    border: 2px solid $clr-primary;
+    border-radius: 25px;
+    background: $clr-primary;
+    color: $clr-light;
+    font-size: 1rem;
+    margin: 1rem 0 1.5rem 0;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background: $clr-light;
+      color: $clr-primary;
+    }
+  }
+
+  &__login-button {
+    padding: 0 0.5rem;
+    text-decoration: none;
+    color: $clr-dark;
+  }
+}
