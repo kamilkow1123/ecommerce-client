@@ -6,8 +6,6 @@ import "./Contact.scss";
 const Contact = () => {
   const sendMessage = async (details, onSuccess) => {
     try {
-      console.log("process", process.env);
-      console.log("details", details);
       await emailjs.sendForm(
         process.env.REACT_APP_SERVICE_ID,
         process.env.REACT_APP_TEMPLATE_ID,

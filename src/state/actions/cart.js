@@ -70,15 +70,19 @@ export const createOrder = (discountCode) => async (dispatch, getState) => {
   const { config, body } = formConfig(getState, { discount_code });
   // const body = JSON.stringify({ discount_code: discountCode });
   try {
-    const response = await resultsAPI.post("order/create/", body, config);
+    const response = await resultsAPI.post(
+      "order/create/",
+      discountCode ? body : null,
+      config
+    );
 
-    console.log("createOrder", response?.data);
+    // console.log("createOrder", response?.data);
     dispatch({
       type: CREATE_ORDER_SUCCESS,
       payload: response?.data,
     });
 
-    console.log("history", history);
+    // console.log("history", history);
     history.replace("/checkout");
   } catch (err) {
     console.log(err?.response?.data);

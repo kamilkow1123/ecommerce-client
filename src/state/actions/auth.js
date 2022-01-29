@@ -50,7 +50,7 @@ export const login = (email, password) => async (dispatch) => {
   try {
     const response = await resultsAPI.post("auth/token/login/", body, config);
 
-    console.log("res", response);
+    // console.log("res", response);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: response.data,

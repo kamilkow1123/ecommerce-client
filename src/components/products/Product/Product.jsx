@@ -43,7 +43,6 @@ const Product = () => {
     product_name,
     detail_description,
     retail_price_brutt,
-    stock_status,
     image_url,
     shipping_cost,
   } = product || {};
@@ -66,7 +65,6 @@ const Product = () => {
         >
           Add to Cart
         </button>
-        {/* <p className="product__stock">{stock_status}</p> */}
         <div className="product__img">
           <img src={image_url}></img>
         </div>

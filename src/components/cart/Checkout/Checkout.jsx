@@ -51,7 +51,9 @@ const Checkout = () => {
               <div className="checkout__products">{renderProducts()}</div>
               <p className="checkout__details">
                 Total cost:{" "}
-                <span>{Math.round(get_cart_total * 100) / 100} zł</span>{" "}
+                {String(get_cart_total) !== String(totalOrderCost) && (
+                  <span>{Math.round(get_cart_total * 100) / 100} zł</span>
+                )}
                 {Math.round(totalOrderCost * 100) / 100} zł
               </p>
               <p className="checkout__discount">
